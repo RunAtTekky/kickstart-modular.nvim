@@ -31,6 +31,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/rose-pine',
 
+  require 'kickstart/plugins/live-preview',
+
   require 'kickstart/plugins/todo-comments',
 
   require 'kickstart/plugins/mini',
