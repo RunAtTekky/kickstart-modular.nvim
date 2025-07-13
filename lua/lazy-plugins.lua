@@ -29,6 +29,10 @@ require('lazy').setup({
 
   require 'kickstart/plugins/harpoon',
 
+  require 'kickstart/plugins/leetcode',
+
+  require 'kickstart/plugins/lazygit',
+
   require 'kickstart/plugins/rose-pine',
 
   require 'kickstart/plugins/live-preview',
