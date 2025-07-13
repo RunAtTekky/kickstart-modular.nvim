@@ -33,6 +33,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/lazygit',
 
+  require 'kickstart/plugins/smear_cursor',
+
   require 'kickstart/plugins/rose-pine',
 
   require 'kickstart/plugins/live-preview',
