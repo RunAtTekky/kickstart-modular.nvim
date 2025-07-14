@@ -35,6 +35,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/smear_cursor',
 
+  require 'kickstart/plugins/competitest',
+
   require 'kickstart/plugins/rose-pine',
 
   require 'kickstart/plugins/live-preview',
