@@ -39,6 +39,12 @@ require('lazy').setup({
 
   require 'kickstart/plugins/transparent',
 
+  require 'kickstart/plugins/autopairs',
+
+  require 'kickstart/plugins/refactoring',
+
+  require 'kickstart/plugins/inc_rename',
+
   require 'kickstart/plugins/rose-pine',
 
   require 'kickstart/plugins/live-preview',
