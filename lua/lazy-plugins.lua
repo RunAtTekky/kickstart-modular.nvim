@@ -45,6 +45,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/inc_rename',
 
+  require 'kickstart/plugins/markdown',
+
   require 'kickstart/plugins/rose-pine',
 
   require 'kickstart/plugins/live-preview',
