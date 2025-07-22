@@ -5,30 +5,43 @@ return {
     version = '1.*',
     dependencies = {
       -- Snippet Engine
+      --
+      -- ~/.config/nvim/lua/plugins/luasnip.lua
       {
         'L3MON4D3/LuaSnip',
-        version = '2.*',
-        build = (function()
-          -- Build Step is needed for regex support in snippets.
-          -- This step is not supported in many windows environments.
-          -- Remove the below condition to re-enable on windows.
-          if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
-            return
-          end
-          return 'make install_jsregexp'
-        end)(),
-        dependencies = {
-          -- `friendly-snippets` contains a variety of premade snippets.
-          --    See the README about individual language/framework/plugin snippets:
-          --    https://github.com/rafamadriz/friendly-snippets
-          -- {
-          --   'rafamadriz/friendly-snippets',
-          --   config = function()
-          --     require('luasnip.loaders.from_vscode').lazy_load()
-          --   end,
-          -- },
+        -- follow latest release
+        version = 'v2.*',
+        -- install jsregexp (optional!) for advanced features
+        build = 'make install_jsregexp',
+        config = function()
+          require('luasnip.config').setup {
+            -- Optional: configure update_events for hot-reloading snippets
+            -- update_events = 'TextChanged,TextChangedI',
+            -- enable_autosnippets = true, -- Optional: enable autosnippets
+          }
+
+          -- Load your snippets
+          -- require('luasnip.loaders.from_lua').load { paths = '~/.config/nvim/luasnip/' }
+          -- Corrected line
+          require('luasnip.loaders.from_lua').load { paths = { '~/.config/nvim/luasnip/' } }
+          -- Or, if you prefer VS Code style snippets:
+          -- require('luasnip.loaders.from_vscode').lazy_load { paths = { '~/.config/nvim/snippets/' } }
+        end,
+        -- Optional: setup keymaps for snippet expansion/jumping
+        keys = {
+          -- Expand or jump forward
+          {
+            '<Tab>',
+            function()
+              return require('luasnip').expand_or_jumpable() and '<Plug>luasnip-expand-or-jump' or '<Tab>'
+            end,
+            mode = 'i',
+            expr = true,
+            silent = true,
+          },
+          -- Jump backward
+          { '<S-Tab>', '<Plug>luasnip-jump-backward', mode = { 'i', 's' }, silent = true },
         },
-        opts = {},
       },
       'folke/lazydev.nvim',
     },
