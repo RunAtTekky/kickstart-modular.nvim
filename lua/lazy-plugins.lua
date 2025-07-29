@@ -47,6 +47,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/markdown',
 
+  require 'kickstart/plugins/wakatime',
+
   require 'kickstart/plugins/rose-pine',
 
   require 'kickstart/plugins/live-preview',
