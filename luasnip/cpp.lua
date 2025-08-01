@@ -7,7 +7,7 @@ local rep = require('luasnip.extras').rep
 local fmta = require('luasnip.extras.fmt').fmta -- Still useful for dynamic parts
 
 return {
-  -- My very basic CP Template (using t() for full static block)
+  -- My very basic CP Template
   s(
     { trig = 'runat', dscr = 'My very basic CP Template' },
     t {
@@ -26,6 +26,53 @@ return {
       '    while (t--) solve();',
       '}',
       '',
+    }
+  ),
+
+  -- Disjoint Set Union Template
+  s(
+    { trig = 'DSU', dscr = 'Disjoint Set Union' },
+    t {
+      'class DSU {',
+      'private:',
+      '    vector<int> parent;',
+      '    vector<int> size;',
+      '    int count = 0;',
+      '',
+      'public:',
+      '    DSU(int n) : parent(n), size(n,1) {',
+      '        iota(parent.begin(), parent.end(), 0);',
+      '        count = n;',
+      '    }',
+      '',
+      '    int find(int x) {',
+      '        return parent[x] == x ? x : parent[x] = find(parent[x]);',
+      '    }',
+      '',
+      '    void connect(int a, int b) {',
+      '        a = find(a);',
+      '        b = find(b);',
+      '        if (a != b) {',
+      '            if (size[a] < size[b])',
+      '                swap(a, b);',
+      '            parent[b] = a;',
+      '            size[a] += size[b];',
+      '            count--;',
+      '        }',
+      '    }',
+      '',
+      '    bool connected(int a, int b) {',
+      '        return find(a) == find(b);',
+      '    }',
+      '',
+      '    int components() {',
+      '        return count;',
+      '    }',
+      '',
+      '    int componentSize(int x) {',
+      '        return size[find(x)];',
+      '    }',
+      '};',
     }
   ),
 
@@ -174,6 +221,45 @@ return {
     }
   ),
 
+  s(
+    { trig = 'print1', dscr = 'Print one' },
+    fmta(
+      [[
+cout <<<< <> <<<< "\n";
+]],
+      {
+        i(1),
+      }
+    )
+  ),
+
+  s(
+    { trig = 'print2', dscr = 'Print two' },
+    fmta(
+      [[
+cout <<<< <> <<<< " " <<<< <> <<<< "\n";
+]],
+      {
+        i(1),
+        i(2),
+      }
+    )
+  ),
+
+  s(
+    { trig = 'print3', dscr = 'Print three' },
+    fmta(
+      [[
+cout <<<< <> <<<< " " <<<< <> <<<< " " <<<< <> <<<< "\n";
+]],
+      {
+        i(1),
+        i(2),
+        i(3),
+      }
+    )
+  ),
+
   -- YESNO
   s(
     { trig = 'yesno', dscr = 'Define yes and no' },
@@ -198,15 +284,11 @@ for (auto &<> : <>) cin >>>> <>;
         i(3),
         rep(1),
         rep(3),
-        -- vec = i(1, 'vec'),
-        -- vec = rep(1),
-        -- size = i(2, 'size'),
-        -- ele = i(3, 'ele'),
       }
     )
   ),
 
-  -- Vector Output (continue using fmta, but fix angle brackets)
+  -- Vector Output
   s(
     { trig = 'vecout', dscr = 'Vector Output' },
     fmta(
@@ -219,12 +301,10 @@ cout <<<< "\n";
         i(1),
         i(2),
         rep(1),
-        -- ele = i(1, 'ele'),
-        -- vec = i(2, 'vec'),
       }
     )
   ),
 
-  -- Simple macro for debugging (already uses t(), which is fine)
+  -- Simple macro for debugging
   s({ trig = 'debug', dscr = 'Simple macro for debugging' }, t "#define debug(x) cerr << #x << ' ' << x << '\\n';"),
 }

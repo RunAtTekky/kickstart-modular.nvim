@@ -53,8 +53,6 @@ require('lazy').setup({
 
   require 'kickstart/plugins/live-preview',
 
-  require 'kickstart/plugins/golf-vim',
-
   require 'kickstart/plugins/todo-comments',
 
   require 'kickstart/plugins/mini',
