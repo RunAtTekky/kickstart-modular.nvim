@@ -49,6 +49,8 @@ require('lazy').setup({
 
   require 'kickstart/plugins/wakatime',
 
+  require 'kickstart/plugins/autotag',
+
   require 'kickstart/plugins/rose-pine',
 
   require 'kickstart/plugins/live-preview',
