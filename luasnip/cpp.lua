@@ -21,7 +21,7 @@ return {
       '}',
       '',
       'int main() {',
-      'ios_base::sync_with_stdio(false); cin.tie(NULL);',
+      '    ios_base::sync_with_stdio(false); cin.tie(NULL);',
       '    int t=1; cin >> t;',
       '    while (t--) solve();',
       '}',
@@ -274,7 +274,7 @@ cout <<<< <> <<<< " " <<<< <> <<<< " " <<<< <> <<<< "\n";
     { trig = 'vecin', dscr = 'Take vector input' },
     fmta(
       [[
-vector<<int>> <>(<>);
+vector<<ll>> <>(<>);
 for (auto &<> : <>) cin >>>> <>;
 
 ]],
