@@ -17,6 +17,11 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 vim.keymap.set('n', '<leader>e', vim.cmd.Ex, { desc = 'Explore (Netrw)' })
+vim.keymap.set('n', '<leader>cpp', '<cmd>CompetiTest receive problem<CR>', { desc = 'CompetiTest receive problem' })
+vim.keymap.set('n', '<leader>cpr', '<cmd>CompetiTest run<CR>', { desc = 'CompetiTest run problem' })
+vim.keymap.set('n', '<leader>cps', '<cmd>CompetiTest show_ui<CR>', { desc = 'CompetiTest show UI' })
+vim.keymap.set('n', '<leader>cpa', '<cmd>CompetiTest add_testcase<CR>', { desc = 'CompetiTest add testcase' })
+vim.keymap.set('n', '<leader>cpe', '<cmd>CompetiTest edit_testcase<CR>', { desc = 'CompetiTest edit testcase' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
