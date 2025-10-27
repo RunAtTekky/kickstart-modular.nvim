@@ -33,7 +33,7 @@ require('lazy').setup({
 
   require 'kickstart/plugins/lazygit',
 
-  require 'kickstart/plugins/smear_cursor',
+  -- require 'kickstart/plugins/smear_cursor',
 
   require 'kickstart/plugins/competitest',
 
