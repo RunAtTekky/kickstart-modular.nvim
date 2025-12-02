@@ -23,6 +23,14 @@ vim.keymap.set('n', '<leader>cps', '<cmd>CompetiTest show_ui<CR>', { desc = 'Com
 vim.keymap.set('n', '<leader>cpa', '<cmd>CompetiTest add_testcase<CR>', { desc = 'CompetiTest add testcase' })
 vim.keymap.set('n', '<leader>cpe', '<cmd>CompetiTest edit_testcase<CR>', { desc = 'CompetiTest edit testcase' })
 
+vim.keymap.set('n', ']t', function()
+  require('todo-comments').jump_next()
+end, { desc = 'Next todo comment' })
+
+vim.keymap.set('n', '[t', function()
+  require('todo-comments').jump_prev()
+end, { desc = 'Previous todo comment' })
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
