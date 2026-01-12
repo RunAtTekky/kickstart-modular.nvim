@@ -14,6 +14,9 @@ return {
     -- Creates a beautiful debugger UI
     'rcarriga/nvim-dap-ui',
 
+    -- Shows text alongside the variable
+    'theHamsta/nvim-dap-virtual-text',
+
     -- Required dependency for nvim-dap-ui
     'nvim-neotest/nvim-nio',
 
@@ -143,6 +146,16 @@ return {
         -- See https://github.com/leoluz/nvim-dap-go/blob/main/README.md#configuring
         detached = vim.fn.has 'win32' == 0,
       },
+    }
+
+    -- Add Virtual Text
+    require('nvim-dap-virtual-text').setup {
+      enabled = true,
+      commented = true,
+      highlight_changed_variables = true,
+      show_stop_reason = true,
+      virt_text_pos = 'eol',
+      z_index = 1000,
     }
   end,
 }
